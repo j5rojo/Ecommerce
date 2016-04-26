@@ -1,0 +1,171 @@
+html, body{
+  margin:0;
+  padding:0;
+  height:100%;
+  background: url("../images/fondo7.png");
+  font-family: arial;
+  color: #555555;
+}
+header{
+  background: #ffffff;
+  border-bottom: 3px solid #d1cece;
+  margin-bottom: 10px;
+  padding:5px 0;
+}
+header h1{
+  font-weight: lighter;
+}
+nav a{
+  text-decoration: none;
+  color: #555555;
+  font-size: 18px;
+}
+nav a:hover{
+  color: #0000c4;
+}
+section{
+  margin:10px 0 0 0;
+  padding: 0 0 20px 0;
+  background: #ffffff;
+  border-bottom: 3px solid #d1cece;
+  margin-bottom: 10px;
+}
+aside #formInicioSesion{
+  margin-top: 0;
+  background: #ffffff;
+  border-bottom: 3px solid #d1cece;
+}
+footer{
+  position:relative;
+  margin-top: -140px;
+  height: 150px;
+  clear:both;
+  background: #ffffff;
+}
+.sectionTitulo{
+  margin:0;
+  padding:0;
+  color: #ffffff;
+  font-weight: lighter;
+  padding-bottom: 5px;
+  cursor: default;
+  background: #010084;
+}
+.logo{
+  color: #ffffff;
+}
+.groupButton button{
+  padding: 5px;
+  color: #555555;
+  font-size:14px;
+  font-weight: bold;
+  background: #ffffff;
+  border:none;
+  border-bottom: 3px solid #d1cece;
+}
+.groupButton button:hover{
+  cursor:pointer;
+  border-color: #010084;
+  color: #3333FF;
+}
+.groupButton button:active{
+  cursor:pointer;
+  border:none;
+  border-top: 3px solid #000042;
+  color: #ffffff;
+  background: #010084;
+}
+.groupButton button:focus{
+  outline: 0px;
+}
+.groupButton a{
+  padding: 5px;
+  color: #555555;
+  font-weight: bold;
+  background: #ffffff;
+  border:none;
+  border-bottom: 3px solid #d1cece;
+  text-decoration: none;
+  font-size: 14px;
+}
+.groupButton a:hover{
+  cursor:pointer;
+  border-color: #010084;
+  color: #3333FF;
+}
+.groupButton a:active{
+  cursor:pointer;
+  border: none;
+  border-top: 3px solid #000042;
+  color: #ffffff;
+  background: #010084;
+}
+.instagram, .twitter{
+  margin:10px 0;
+  padding:10px;
+}
+.inputForm{
+  padding: 5px;
+  color: #555555;
+  font-weight: bold;
+  border:none;
+  border-bottom: 2px solid #d1cece;
+  text-align: center;
+}
+.inputForm:focus{
+  outline: 0px;
+  border-bottom-color: #010084;
+  color: #3333FF;
+}
+.msj-error{
+  color: #dd4b39;
+}
+.msj-correcto{
+  color: #34af23;
+}
+#main{
+  padding-bottom:150px;
+}
+#wrap{
+  min-height: 100%;
+}
+#tituloSection{
+  margin: 0 0 20px 0;
+  padding: 10px 0 8px 0;
+  background: #010084;
+  color: #ffffff;
+  font-weight: lighter;
+}
+#formInicioSesion div{
+  margin:10px 0;
+  padding: 0 8px;
+}
+#formInicioSesion div:nth-child(2){
+  margin-top: 20px;
+}
+#formInicioSesion h2{
+  margin: 10px 0;
+  padding: 10px 0 0 0;
+  color: #ffffff;
+  font-weight: lighter;
+  padding-bottom: 5px;
+  cursor: default;
+  background: #010084;
+}
+.form input,textarea{
+  margin:5px;
+  font-size: 15px;
+}
+.form button{
+  margin-top:20px;
+  font-size: 16px !important;
+}
+/* Placeholders de los Inputs */
+.placeholder::-webkit-input-placeholder { color: #555555; text-align: center;}
+.placeholder:-moz-placeholder { color: #555555; text-align: center;}
+.placeholder::-moz-placeholder { color: #555555; text-align: center;}
+.placeholder:-ms-input-placeholder { color: #555555; text-align: center;}
+.placeholder-error::-webkit-input-placeholder { color: #dd4b39; text-align: center;}
+.placeholder-error:-moz-placeholder { color: #dd4b39; text-align: center;}
+.placeholder-error::-moz-placeholder { color: #dd4b39; text-align: center;}
+.placeholder-error:-ms-input-placeholder { color: #dd4b39; text-align: center;}
