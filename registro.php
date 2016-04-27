@@ -10,6 +10,12 @@
                 echo '<h2 id="error">Debes Escribir tu Nombre</h2>';
           			echo '<script type="text/javascript">
           						  $(document).ready(function() {
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
                           $("#nombre").removeClass("placeholder");
                           $("#nombre").addClass("placeholder-error");
                           $("#nombre").focus().css("border-color", "#dd4b39");
@@ -22,11 +28,50 @@
           			echo '<script type="text/javascript">
           						  $(document).ready(function() {
                           $("#nombre").attr("value", "'.$_POST['nombre'].'");
-                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
                           $("#apellido").removeClass("placeholder");
                           $("#apellido").addClass("placeholder-error");
                           $("#apellido").focus().css("border-color", "#dd4b39");
                           $("#apellido").focus().css("color", "#dd4b39");
+          								$("#error").addClass("msj-error");
+          							});
+          						</script>';
+          		}elseif($_POST['telefono'] == ''){
+                echo '<h2 id="error">Debes Escribir tu Número Teléfonico</h2>';
+          			echo '<script type="text/javascript">
+          						  $(document).ready(function() {
+                          $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
+                          $("#telefono").removeClass("placeholder");
+                          $("#telefono").addClass("placeholder-error");
+                          $("#telefono").focus().css("border-color", "#dd4b39");
+                          $("#telefono").focus().css("color", "#dd4b39");
+          								$("#error").addClass("msj-error");
+          							});
+          						</script>';
+          		}elseif(!preg_match("/^[0-9]*$/", $_POST['telefono'])){
+                echo '<h2 id="error">Debes Escribir un Número Teléfonico Válido</h2>';
+          			echo '<script type="text/javascript">
+          						  $(document).ready(function() {
+                          $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
+                          $("#telefono").removeClass("placeholder");
+                          $("#telefono").addClass("placeholder-error");
+                          $("#telefono").focus().css("border-color", "#dd4b39");
+                          $("#telefono").focus().css("color", "#dd4b39");
           								$("#error").addClass("msj-error");
           							});
           						</script>';
@@ -35,6 +80,11 @@
                 echo '<script type="text/javascript">
                         $(document).ready(function() {
                           $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
                           $("#correo").removeClass("placeholder");
                           $("#correo").addClass("placeholder-error");
                           $("#correo").focus().css("border-color", "#dd4b39");
@@ -47,6 +97,12 @@
                 echo '<script type="text/javascript">
                         $(document).ready(function() {
                           $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
                           $("#correo").removeClass("placeholder");
                           $("#correo").addClass("placeholder-error");
                           $("#correo").focus().css("border-color", "#dd4b39");
@@ -54,36 +110,78 @@
                           $("#error").addClass("msj-error");
                         });
                       </script>';
-              }elseif($_POST['asunto'] == ''){
-                echo '<h2 id="error">Debe Escribir un Asunto para su Mensaje</h2>';
+              }elseif($_POST['usuario'] == ''){
+                echo '<h2 id="error">Debe Escribir un Nombre de Usuario</h2>';
                 echo '<script type="text/javascript">
                         $(document).ready(function() {
                           $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
                           $("#correo").attr("value", "'.$_POST['correo'].'");
-                          $("#asunto").removeClass("placeholder");
-                          $("#asunto").addClass("placeholder-error");
-                          $("#asunto").focus().css("border-color", "#dd4b39");
-                          $("#asunto").focus().css("color", "#dd4b39");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
+                          $("#usuario").removeClass("placeholder");
+                          $("#usuario").addClass("placeholder-error");
+                          $("#usuario").focus().css("border-color", "#dd4b39");
+                          $("#usuario").focus().css("color", "#dd4b39");
                           $("#error").addClass("msj-error");
                         });
                       </script>';
-              }elseif($_POST['mensaje'] == ''){
-                echo '<h2 id="error">Debe Escribir un Mensaje</h2>';
+              }elseif($_POST['contrasenia'] == ''){
+                echo '<h2 id="error">Debe Escribir una Contraseña</h2>';
                 echo '<script type="text/javascript">
                         $(document).ready(function() {
                           $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
                           $("#correo").attr("value", "'.$_POST['correo'].'");
-                          $("#asunto").attr("value", "'.$_POST['asunto'].'");
-                          $("#mensaje").removeClass("placeholder");
-                          $("#mensaje").addClass("placeholder-error");
-                          $("#mensaje").focus().css("border-color", "#dd4b39");
-                          $("#mensaje").focus().css("color", "#dd4b39");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
+                          $("#contrasenia").removeClass("placeholder");
+                          $("#contrasenia").addClass("placeholder-error");
+                          $("#contrasenia").focus().css("border-color", "#dd4b39");
+                          $("#contrasenia").focus().css("color", "#dd4b39");
+                          $("#error").addClass("msj-error");
+                        });
+                      </script>';
+              }elseif($_POST['recontrasenia'] == ''){
+                echo '<h2 id="error">Debe Repetir la Contraseña</h2>';
+                echo '<script type="text/javascript">
+                        $(document).ready(function() {
+                          $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").removeClass("placeholder");
+                          $("#recontrasenia").addClass("placeholder-error");
+                          $("#recontrasenia").focus().css("border-color", "#dd4b39");
+                          $("#recontrasenia").focus().css("color", "#dd4b39");
+                          $("#error").addClass("msj-error");
+                        });
+                      </script>';
+              }elseif($_POST['recontrasenia'] != $_POST['contrasenia']){
+                echo '<h2 id="error">Las Contraseñas No Coinciden</h2>';
+                echo '<script type="text/javascript">
+                        $(document).ready(function() {
+                          $("#nombre").attr("value", "'.$_POST['nombre'].'");
+                          $("#apellido").attr("value", "'.$_POST['apellido'].'");
+                          $("#telefono").attr("value", "'.$_POST['telefono'].'");
+                          $("#correo").attr("value", "'.$_POST['correo'].'");
+                          $("#usuario").attr("value", "'.$_POST['usuario'].'");
+                          $("#contrasenia").attr("value", "'.$_POST['contrasenia'].'");
+                          $("#recontrasenia").attr("value", "'.$_POST['recontrasenia'].'");
+                          $("#recontrasenia").removeClass("placeholder");
+                          $("#recontrasenia").addClass("placeholder-error");
+                          $("#recontrasenia").focus().css("border-color", "#dd4b39");
+                          $("#recontrasenia").focus().css("color", "#dd4b39");
                           $("#error").addClass("msj-error");
                         });
                       </script>';
               //Termina Validaciones Registro
               }else{
-
+                echo "<h2 class='msj-correcto'>Se ha Registrado Satisfactoriamente</h2>";
               }
             }else{
               echo "<h2>Rellene los Datos para Registrarse</h2>";
