@@ -93,7 +93,7 @@
         $mail = new PHPMailer();
         $mail->setFrom($datos['de'], $datos['nombre']);
         $mail->addReplyTo($datos['de'], $datos['nombre']);
-        $mail->addAddress($datos['para'], "Tiendas Shalom");
+        $mail->addAddress($datos['para'], "Shalom Import C.A.");
         $mail->Subject = $datos['asunto'];
         $mail->msgHTML($body);
 

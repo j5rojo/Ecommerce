@@ -158,8 +158,32 @@ footer{
 }
 .form button{
   margin-top:20px;
-  font-size: 16px !important;
+  font-size: 16px;
 }
+.form button.fotop{ font-size: 15px !important; }
+.form select.inputForm{
+  font-size: 15px;
+}
+.form .checkInput{ margin: 0 0 0.75em 0; }
+.form input[type='file']{display:none;}
+.form input[type="radio"]{ display: none; }
+.form input[type="radio"]+label{
+  font-weight: bold;
+  font-size: 15px;
+}
+.form input[type="radio"]+label span{
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 3px solid #555555;
+  padding: 5px;
+  background-clip: content-box;
+}
+.form input[type="radio"]:checked+label span{ background-color: #010084; }
+
 /* Placeholders de los Inputs */
 .placeholder::-webkit-input-placeholder { color: #555555; text-align: center;}
 .placeholder:-moz-placeholder { color: #555555; text-align: center;}
@@ -169,3 +193,46 @@ footer{
 .placeholder-error:-moz-placeholder { color: #dd4b39; text-align: center;}
 .placeholder-error::-moz-placeholder { color: #dd4b39; text-align: center;}
 .placeholder-error:-ms-input-placeholder { color: #dd4b39; text-align: center;}
+/* Productos */
+.producto{
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+.producto img {
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+}
+.producto .mascara {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateX(-300px);/*Desplazamos 300px a la izquierda*/
+  transition: all 0.4s ease-in-out;
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  margin: 0 8px;
+}
+.producto h2{
+  background: rgb(1, 0, 133);
+  margin: 0;
+  color: #ffffff;
+  padding: 10px 0 8px 0;
+  font-weight: normal;
+  height: 10%;
+}
+.producto:hover .mascara {
+  transform: translateX(0px);/*Regresamos a su posicioón original*/
+}
+.mascara .row{
+  background: #ffffff;
+  margin: 10px;
+  border-bottom: 3px solid #d1cece;
+  font-weight: bold;
+  height: 78%;
+}
+.hide{
+  display: none;
+}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/menuIcons.css">
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.zoomooz.min.js"></script>
   </head>
   <body>
     <!-- Plantilla -->
@@ -107,6 +108,15 @@
                             ";
                             include('registro.php');
                             echo "<script type='text/javascript'>document.title='.:Registro de Usuario:.';</script>";
+                          break;
+                          case 'agregarProductos':
+                            echo "
+                              <div class='row center-xs'>
+                                <h2 id='tituloSection' class='col-xs-12'>Nuevo Producto</h2>
+                              </div>
+                            ";
+                            include('includes/agregarProducto.php');
+                            echo "<script type='text/javascript'>document.title='.:Agregar Productos:.';</script>";
                           break;
                           default:
                             echo "
