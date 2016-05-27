@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="css/flexboxgrid.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/menuIcons.css">
+    <link rel="stylesheet" href="css/toastr.css">
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.zoomooz.min.js"></script>
+    <script src="js/toastr.min.js"></script>
   </head>
   <body>
     <!-- Plantilla -->

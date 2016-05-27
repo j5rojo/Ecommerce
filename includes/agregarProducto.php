@@ -23,12 +23,9 @@
       var tipop = this.value;
       $.ajax({
         data:  {tipop: tipop},
-        url:   'includes/accionProducto.php',
+        url:   'includes/accionProductotipop.php',
         type:  'post',
-        beforeSend: function () {
-          $("#categoriap").delay(500).html("Procesando, espere por favor...");
-        },
-        success:  function (response) {
+        success:  function(response){
           $("#categoriap").html(response);
         }
       });
@@ -36,53 +33,78 @@
     });
   });
 </script>
-
-
-      <div class="col-xs-12">
-        <form id="formAgregarproducto" class="form hide" method="post" enctype="multipart/form-data" autocomplete="off">
-          <div class="row center-xs">
-            <div class="col-xs-12" id="respuesta">
-
-            </div>
-            <div class="col-xs-12">
-              <div class="row center-xs">
-                <input type="text" name="nombrep" id="nombrep" class="inputForm col-xs-7 placeholder" placeholder="Escriba el Nombre del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba el Nombre del Producto'">
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="row center-xs">
-                <input type="text" name="stockp" id="stockp" class="inputForm col-xs-7 placeholder" placeholder="Escriba la Cantidad Disponible del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba la Cantidad Disponible del Producto'">
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="row center-xs">
-                <textarea rows="4" name="descp" id="descp" class="inputForm col-xs-7 placeholder" placeholder="Escriba la Descripcion del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba la Descripcion del Producto'" style="font-family:arial;resize:none;"></textarea>
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="row center-xs">
-                <input type="text" name="preciop" id="preciop" class="inputForm col-xs-7 placeholder" placeholder="Escriba el Precio del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba el Precio del Producto'">
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="row center-xs">
-                <select class="inputForm col-xs-7" name="categoriap" id="categoriap">
-                </select>
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="row center-xs groupButton">
-                <button type="button" role="button" class="fotop col-xs-7" onclick="getElementById('fotop').click();">Seleccionar Foto</button>
-                <input type="file" name="fotop" id="fotop"/>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <div class="row groupButton">
-                <input type="hidden" name="tipop" value="<?php $_POST['tipop']?>">
-                <button type="submit" role="button" class="col-xs-6" name="btn-enviar">Agregar Producto</button>
-                <button type="reset" role="button" class="col-xs-6">Reestablecer</button>
-              </div>
-            </div>
-          </div>
-        </form>
+<div class="col-xs-12">
+  <form id="formAgregarproducto" class="form hide" autocomplete="off" enctype="multipart/form-data" method="post">
+    <div class="row center-xs">
+      <div class="col-xs-12" id="respuesta">
+        <h2>Completa los Datos para Agregar un Nuevo Producto</h2>
       </div>
+      <div class="col-xs-12">
+        <div class="row center-xs">
+          <input type="text" name="nombrep" id="nombrep" class="inputForm col-xs-7 placeholder" placeholder="Escriba el Nombre del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba el Nombre del Producto'">
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row center-xs">
+          <input type="text" name="stockp" id="stockp" class="inputForm col-xs-7 placeholder" placeholder="Escriba la Cantidad Disponible del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba la Cantidad Disponible del Producto'">
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row center-xs">
+          <textarea rows="4" name="descp" id="descp" class="inputForm col-xs-7 placeholder" placeholder="Escriba la Descripcion del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba la Descripcion del Producto'" style="font-family:arial;resize:none;"></textarea>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row center-xs">
+          <input type="text" name="preciop" id="preciop" class="inputForm col-xs-7 placeholder" placeholder="Escriba el Precio del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba el Precio del Producto'">
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row center-xs">
+          <select class="inputForm col-xs-7" name="categoriap" id="categoriap">
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row center-xs groupButton">
+          <button type="button" class="fotop col-xs-7" onclick="getElementById('fotop').click();">Seleccionar Foto</button>
+          <input type="file" name="fotop" id="fotop"/>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="row groupButton">
+          <input type="hidden" name="destacadop" value="0">
+          <button type="button" class="col-xs-6" name="btn-enviar">Agregar Producto</button>
+          <button type="button" class="col-xs-6" name="btn-reset">Reestablecer</button>
+        </div>
+      </div>
+    </div>
+    <div class="row groupButton center-xs hide">
+      <button type="button" class="col-xs-6" name="btn-next">Ver Producto</button>
+    </div>
+  </form>
+  <script type="text/javascript">
+    toastr.options = {
+      "closeButton": true,
+      "positionClass": "toast-top-center",
+      "extendedTimeOut": "6000",
+      "escapeHtml": true,
+    }
+    $("button[name='btn-enviar']").click(function(){
+      var formulario = new FormData(document.getElementById("formAgregarproducto"));
+      $.ajax({
+        url: "includes/accionProductoregistrar.php",
+        type: "POST",
+        data: formulario,
+        processData: false,  // tell jQuery not to process the data
+        contentType: false,   // tell jQuery not to set contentType
+        success: function(response){
+          $("#respuesta").append(response);
+        }
+      });
+    });
+    $("button[name='btn-reset']").click(function(){
+      location.reload();
+    });
+  </script>
+</div>
