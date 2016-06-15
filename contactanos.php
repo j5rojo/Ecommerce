@@ -2,10 +2,8 @@
   <div class="col-xs-12">
     <form id="formContacto" class="form" method="POST" autocomplete="off">
       <div class="row center-xs">
-        <div class="col-xs-12">
-          <?php
-            require_once('includes/accionContacto.php');
-          ?>
+        <div class="col-xs-12" id="respuesta">
+          <h2>Envíanos un Mensaje</h2>
         </div>
         <div class="col-xs-12">
           <div class="row center-xs">
@@ -29,12 +27,36 @@
         </div>
         <div class="col-xs-6">
           <div class="row groupButton">
-            <button type="submit" role="button" class="col-xs-6" name="btn-enviar">Enviar Mensaje</button>
-            <button type="reset" role="button" class="col-xs-6">Reestablecer</button>
+            <button type="button" class="col-xs-6" name="btn-enviar">Enviar Mensaje</button>
+            <button type="button" class="col-xs-6" name="btn-reset">Reestablecer</button>
           </div>
         </div>
       </div>
     </form>
+    <script type="text/javascript">
+      toastr.options = {
+        "closeButton": true,
+        "positionClass": "toast-top-center",
+        "extendedTimeOut": "6000",
+        "escapeHtml": true,
+      }
+      $("button[name='btn-enviar']").click(function(){
+        var formulario = new FormData(document.getElementById("formContacto"));
+        $.ajax({
+          url: "includes/accionContacto.php",
+          type: "POST",
+          data: formulario,
+          processData: false,  // tell jQuery not to process the data
+          contentType: false,   // tell jQuery not to set contentType
+          success: function(response){
+            $("#respuesta").append(response);
+          }
+        });
+      });
+      $("button[name='btn-reset']").click(function(){
+        location.reload();
+      });
+    </script>
   </div>
 <!-- Fin del Formulario de Contacto -->
 <!-- Dirección -->

@@ -194,6 +194,58 @@ footer{
 .placeholder-error::-moz-placeholder { color: #dd4b39; text-align: center;}
 .placeholder-error:-ms-input-placeholder { color: #dd4b39; text-align: center;}
 /* Productos */
+#categorias{
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 auto 20px auto;
+  padding: 0;
+}
+#categorias li{
+  position: relative;
+  margin: 0 auto;
+  float:left;
+}
+#categorias li a{
+  display: block;
+  text-transform: capitalize;
+  color:#ffffff;
+  text-align: center;
+  text-decoration: none;
+  width: 10em;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #010084;
+  border: 3px solid transparent;
+}
+#categorias li ul{
+  position: absolute;
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 10em;
+  z-index: 2000;
+}
+#categorias li:hover ul{
+  display: block;
+}
+#categorias ul li{
+  clear: left;
+}
+#categorias ul li a{
+  background: #ffffff;
+  color: #555555;
+  border-color: #555555;
+  border-bottom: none;
+}
+#categorias ul li:last-child a{
+  border-bottom: 3px solid;
+}
+#categorias ul li a:hover{
+  background: #ffffff;
+  color: #010084;
+  border-color: #555555;
+}
 .producto{
   overflow: hidden;
   position: relative;
@@ -215,6 +267,7 @@ footer{
   height: 100%;
   margin: 0 8px;
 }
+.producto .mascara p{text-align: left;}
 .producto h2{
   background: rgb(1, 0, 133);
   margin: 0;
@@ -233,6 +286,21 @@ footer{
   font-weight: bold;
   height: 78%;
 }
+.tituloh1{
+  margin-left: auto;
+  margin-right: auto;
+  display: inline;
+  text-align: center;
+}
 .hide{
   display: none;
 }
+
+/* Nivel de Usuario */
+  #formInicioSesion .panelUsuario{position: relative;}
+  #formInicioSesion .cerrarSesion{
+    position: absolute;
+    right: 0;
+    margin-right: 45px;
+    color: #ffffff;
+  }

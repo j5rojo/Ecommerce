@@ -49,6 +49,13 @@
         $("#categoriap").focus()
       });
     </script>';
+  }elseif($_POST['destacadop']==''){
+    echo '<script type="text/javascript">
+      $(document).ready(function() {
+        toastr.warning("Debe escoger si quiere destacar o no su producto");
+        $("#destacadop").focus()
+      });
+    </script>';
   }elseif($_FILES['fotop']['error'] == UPLOAD_ERR_NO_FILE){
     echo '<script type="text/javascript">
       $(document).ready(function() {
@@ -108,11 +115,9 @@
         $(document).ready(function() {
           toastr.success("El producto ha sido agregado satisfactoriamente");
           $("#respuesta").html("<h2>Producto Agregado</h2>");
-          /* $("button[name=\"btn-enviar\"]").parent().delay(500).fadeOut("slow");    <---  Esto esta
-          $("button[name=\"btn-next\"]").parent().delay(500).fadeIn("slow");          <---  Comentado
-          $("button[name=\"btn-next\"]").click(function(){                            <---  por el
-            $("#formAgregarproducto, #tipop").delay(500).fadeOut("slow");             <---  momento
-          }); */
+          setTimeout(function(){
+            location.reload();
+          }, 5000);
         })
       </script>';
     }else{

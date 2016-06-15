@@ -1,3 +1,4 @@
+<?php require_once('includes/seguridad.php') ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="css/toastr.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/toastr.min.js"></script>
+    <script src="https://use.fontawesome.com/c04173613a.js"></script>
   </head>
   <body>
     <!-- Plantilla -->
@@ -139,46 +141,21 @@
                 <div class="col-xs-4">
                   <!-- Formulario de Inicio de Sesión -->
                     <aside class="middle-xs center-xs">
-                      <form id="formInicioSesion" method="POST" autocomplete="off">
-                        <h2 class="col-xs-12">Iniciar Sesión</h2>
-                        <div class="row center-xs" id="answer"></div>
-                        <div class="row center-xs">
-                          <input type="text" name="user" id="user" class="inputForm col-xs-6 placeholder" placeholder="Nombre de Usuario" onfocus="this.placeholder=''" onblur="this.placeholder='Nombre de Usuario'">
+                      <div id="formInicioSesion">
+                        <h2 class="col-xs-12" class="panelUsuario">
+                          Bienvenido <?php echo $_SESSION['nombre']?>
+                          <a href="includes/cerrarSesion.php" class="cerrarSesion">
+                            <span class="fa fa-sign-out"></span>
+                          </a>
+                        </h2>
+                        <div class="col-xs-12 menuUsuario">
+                          <ul>
+                            <li><a href="">Ver Perfil</a></li>
+                            <li><a href="">Carrito de Compras</a></li>
+                            <li><a href="">Compras Realizadas</a></li>
+                          </ul>
                         </div>
-                        <div class="row center-xs">
-                          <input type="password" name="pass" id="pass" class="inputForm col-xs-6 placeholder" placeholder="Contraseña" onfocus="this.placeholder=''" onblur="this.placeholder='Contraseña'">
-                        </div>
-                        <div class="row center-xs">
-                          <div class="row groupButton">
-                            <button type="button" name="btn-inicioSesion" class="col-xs-6">Conectarse</button>
-                            <a href="index.php?section=registro" class="col-xs-6">Registrarse</a>
-                          </div>
-                        </div>
-                      </form>
-                      <script type="text/javascript">
-                        toastr.options = {
-                          "closeButton": true,
-                          "positionClass": "toast-top-center",
-                          "extendedTimeOut": "6000",
-                          "escapeHtml": true,
-                        }
-                        $("button[name='btn-inicioSesion']").click(function(){
-                          var form = new FormData(document.getElementById("formInicioSesion"));
-                          $.ajax({
-                            url: "includes/inicioSesion.php",
-                            type: "POST",
-                            data: form,
-                            processData: false,  // tell jQuery not to process the data
-                            contentType: false,   // tell jQuery not to set contentType
-                            success: function(response){
-                              $("#answer").append(response);
-                            }
-                          });
-                        });
-                        $("button[name='btn-reset']").click(function(){
-                          location.reload();
-                        });
-                      </script>
+                      </div>
                     </aside>
                   <!-- Fin del Formulario de Inicio de Sesión -->
                   <!-- Instagram -->

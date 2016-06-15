@@ -56,12 +56,22 @@
       </div>
       <div class="col-xs-12">
         <div class="row center-xs">
+          <!-- Se rellena solo con ajax -->
+          <select class="inputForm col-xs-7" name="categoriap" id="categoriap">
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row center-xs">
           <input type="text" name="preciop" id="preciop" class="inputForm col-xs-7 placeholder" placeholder="Escriba el Precio del Producto" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba el Precio del Producto'">
         </div>
       </div>
       <div class="col-xs-12">
         <div class="row center-xs">
-          <select class="inputForm col-xs-7" name="categoriap" id="categoriap">
+          <select class="inputForm col-xs-7" name="destacadop" id="destacadop">
+            <option value="" selected>Destaque su Producto</option>
+            <option value="1">Destacar Producto</option>
+            <option value="0">No Destacar Producto</option>
           </select>
         </div>
       </div>
@@ -73,14 +83,10 @@
       </div>
       <div class="col-xs-6">
         <div class="row groupButton">
-          <input type="hidden" name="destacadop" value="0">
           <button type="button" class="col-xs-6" name="btn-enviar">Agregar Producto</button>
           <button type="button" class="col-xs-6" name="btn-reset">Reestablecer</button>
         </div>
       </div>
-    </div>
-    <div class="row groupButton center-xs hide">
-      <button type="button" class="col-xs-6" name="btn-next">Ver Producto</button>
     </div>
   </form>
   <script type="text/javascript">
