@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/menuIcons.css">
     <link rel="stylesheet" href="css/toastr.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/toastr.min.js"></script>
-    <script src="https://use.fontawesome.com/c04173613a.js"></script>
   </head>
   <body>
     <!-- Plantilla -->
@@ -30,16 +30,16 @@
                   <nav class="col-xs-8">
                     <div class="row end-xs">
                       <div class="col-xs-3">
-                        <a href="index.php?section=inicio"><span class="icon-web"></span>&nbsp;Inicio</a>
+                        <a href="nivelUsuario.php?section=inicio"><span class="icon-web"></span>&nbsp;Inicio</a>
                       </div>
                       <div class="col-xs-3">
-                        <a href="index.php?section=nosotros"><span class="icon-people"></span>&nbsp;Nosotros</a>
+                        <a href="nivelUsuario.php?section=nosotros"><span class="icon-people"></span>&nbsp;Nosotros</a>
                       </div>
                       <div class="col-xs-3">
-                        <a href="index.php?section=productos"><span class="icon-fashion"></span>&nbsp;Productos</a>
+                        <a href="nivelUsuario.php?section=productos"><span class="icon-fashion"></span>&nbsp;Productos</a>
                       </div>
                       <div class="col-xs-3">
-                        <a href="index.php?section=contactanos"><span class="icon-apple"></span>&nbsp;Cont&aacute;ctanos</a>
+                        <a href="nivelUsuario.php?section=contactanos"><span class="icon-apple"></span>&nbsp;Cont&aacute;ctanos</a>
                       </div>
                     </div>
                   </nav>
@@ -91,7 +91,7 @@
                                 <h2 id='tituloSection' class='col-xs-12'>Productos</h2>
                               </div>
                             ";
-                            include('productos.php');
+                            include('productosUsuario.php');
                             echo "<script type='text/javascript'>document.title='.:Productos:.';</script>";
                           break;
                           case 'contactanos':
@@ -103,23 +103,23 @@
                             include('contactanos.php');
                             echo "<script type='text/javascript'>document.title='.:Contáctanos:.';</script>";
                           break;
-                          case 'registro':
+                          case 'perfilUsuario':
                             echo "
                               <div class='row center-xs'>
-                                <h2 id='tituloSection' class='col-xs-12'>Registro de Usuario</h2>
+                                <h2 id='tituloSection' class='col-xs-12'>Perfil de Usuario</h2>
                               </div>
                             ";
-                            include('registro.php');
-                            echo "<script type='text/javascript'>document.title='.:Registro de Usuario:.';</script>";
+                            include('includes/perfilUsuario.php');
+                            echo "<script type='text/javascript'>document.title='.:Perfil de Usuario:.';</script>";
                           break;
-                          case 'agregarProductos':
+                          case 'carrito':
                             echo "
                               <div class='row center-xs'>
-                                <h2 id='tituloSection' class='col-xs-12'>Nuevo Producto</h2>
+                                <h2 id='tituloSection' class='col-xs-12'>Carrito de Compras</h2>
                               </div>
                             ";
-                            include('includes/agregarProducto.php');
-                            echo "<script type='text/javascript'>document.title='.:Agregar Productos:.';</script>";
+                            include('carrito.php');
+                            echo "<script type='text/javascript'>document.title='.:Carrito de Compras:.';</script>";
                           break;
                           default:
                             echo "
@@ -143,16 +143,51 @@
                     <aside class="middle-xs center-xs">
                       <div id="formInicioSesion">
                         <h2 class="col-xs-12" class="panelUsuario">
-                          Bienvenido <?php echo $_SESSION['nombre']?>
+                          Bienvenido <?php echo $_SESSION['usuario']?>
                           <a href="includes/cerrarSesion.php" class="cerrarSesion">
                             <span class="fa fa-sign-out"></span>
                           </a>
                         </h2>
                         <div class="col-xs-12 menuUsuario">
                           <ul>
-                            <li><a href="">Ver Perfil</a></li>
-                            <li><a href="">Carrito de Compras</a></li>
-                            <li><a href="">Compras Realizadas</a></li>
+                            <li>
+                              <a href="nivelUsuario.php?section=perfilUsuario">
+                                <span class="fa fa-user"></span>
+                                <span class="textOption">Perfil</span>
+                              </a>
+                            </li>
+                            <li>
+                              <?php
+                                if(isset($_SESSION['carrito'])){
+                                  $carButton='href="nivelUsuario.php?section=carrito"';
+                                }else{
+                                  $carButton='class="emptyCar" style="cursor:pointer;"';
+                                  echo '<script type="text/javascript">
+                                    $(document).ready(function(){
+                                      toastr.options = {
+                                        "closeButton": true,
+                                        "positionClass": "toast-top-center",
+                                        "extendedTimeOut": "6000",
+                                        "escapeHtml": true
+                                      }
+                                      $(".emptyCar").on("click", function(){
+                                        toastr.info("\u00A1Tu carrito est\u00E1 vacio! A\u00F1ade productos al carrito en la opci\u00F3n \"Productos\" del menu");
+                                      })
+                                    });
+                                  </script>';
+                                }
+                              ?>
+                              <a <?php echo $carButton;?>>
+                                <span class="fa fa-shopping-cart"></span>
+                                <span class="textOption">Carrito</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="">
+                                <span class="fa fa-shopping-bag"></span>
+                                <span class="textOption">Compras</span>
+                              </a>
+                            </li>
                           </ul>
                         </div>
                       </div>

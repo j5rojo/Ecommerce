@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/menuIcons.css">
     <link rel="stylesheet" href="css/toastr.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/toastr.min.js"></script>
   </head>

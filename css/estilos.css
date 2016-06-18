@@ -40,7 +40,7 @@ footer{
   margin-top: -140px;
   height: 150px;
   clear:both;
-  background: #ffffff;
+  background: #010084;
 }
 .sectionTitulo{
   margin:0;
@@ -292,9 +292,7 @@ footer{
   display: inline;
   text-align: center;
 }
-.hide{
-  display: none;
-}
+.hide{display: none;}
 
 /* Nivel de Usuario */
   #formInicioSesion .panelUsuario{position: relative;}
@@ -303,4 +301,121 @@ footer{
     right: 0;
     margin-right: 45px;
     color: #ffffff;
+  }
+  .menuUsuario{padding-bottom: 20px !important;}
+  .menuUsuario ul, .opcionPerfil{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .menuUsuario ul li{
+    padding: 5px;
+    margin: 5px 0;
+  }
+  .menuUsuario ul li a, .opcionPerfil button{
+    text-decoration: none;
+    color: #555555;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 36px;
+  }
+  .menuUsuario ul li a:hover, .opcionPerfil button:hover{
+    color: #0000c4;
+    cursor: pointer;
+  }
+  .textOption{
+    display: block;
+    font-size: 15px;
+  }
+  .datosUsuario{
+    width: 100%;
+    font-size: 16px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .datosUsuario caption h2{font-size: 1.5em;}
+  .datosUsuario tr{border:none;}
+  .datosUsuario tr td{
+    padding: 8px;
+    border-bottom: 3px solid #555555;
+  }
+  .datosUsuario tr:last-child td{border-bottom: none;}
+  .datosUsuario tr td:first-child{
+    text-align: left;
+    font-weight: bold;
+  }
+  .opcionPerfil .fa{font-size: 36px;}
+  .opcionPerfil .textOption{font-weight: bold;}
+  .opcionPerfil button{
+    border:none;
+    background: none;
+    outline: 0px;
+  }
+  .perfilCambios{margin-bottom: 10px;}
+  .perfilCambios .inputForm, .claveCambios .inputForm{
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .carrito tr:first-child{
+    color: #ffffff;
+    background: #010084;
+    text-align: center;
+    font-weight: bold;
+  }
+  .carrito tr td:first-child{
+    font-weight: normal;
+    text-align: center;
+  }
+  .carrito tr td{border:none;}
+  .primero{font-weight: bold !important;}
+  .tercero{
+    text-align: right !important;
+    font-weight: bold !important;
+    background: #010084;
+    color: #ffffff;
+  }
+  .carrito #updateCantidad, .carrito #deleteProducto{
+    border:none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    outline: 0px;
+  }
+  .carrito #updateCantidad{
+    position: relative;
+    top:3px;
+  }
+  .carrito .subtotal{position: relative;}
+  .carrito #deleteProducto{
+    position: absolute;
+    right: -10px;
+    top:8px;
+  }
+  .carrito #updateCantidad:hover{
+    color: #0000c4;
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    transform:rotate(360deg);
+    -moz-transition:.5s ease;
+    -webkit-transition:.5s ease;
+    -ms-transition:.5s ease;
+    -o-transition:.5s ease;
+    transition:.5s ease;
+  }
+  .carrito #deleteProducto:hover{color: #da3737;}
+  input[type="number"]{
+    border:none;
+    border-bottom: 2px solid #d1cece;
+    padding: 5px;
+    text-align: center;
+    color: #555555;
+    outline: 0px;
+  }
+  input[type="number"]:focus{
+    border-bottom-color: #010084;
+    color: #3333FF;
   }

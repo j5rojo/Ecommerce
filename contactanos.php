@@ -1,4 +1,12 @@
 <!-- Formulario de Contacto -->
+  <?php
+    $nombreContact='';
+    $emailContact='';
+    if(isset($_SESSION['nombre'])){
+      $nombreContact="value='".$_SESSION['nombre']."' disabled='disabled'";
+      $emailContact="value='".$_SESSION['correo']."' disabled='disabled'";
+    }
+  ?>
   <div class="col-xs-12">
     <form id="formContacto" class="form" method="POST" autocomplete="off">
       <div class="row center-xs">
@@ -7,12 +15,12 @@
         </div>
         <div class="col-xs-12">
           <div class="row center-xs">
-            <input type="text" title="Debes Escribir un Nombre" name="nombre" id="nombre" class="inputForm col-xs-7 placeholder" placeholder="Escriba su Nombre" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba su Nombre'">
+            <input type="text" title="Debes Escribir un Nombre" name="nombre" id="nombre" class="inputForm col-xs-7 placeholder" placeholder="Escriba su Nombre" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba su Nombre'" <?php echo $nombreContact?>>
           </div>
         </div>
         <div class="col-xs-12">
           <div class="row center-xs">
-            <input type="text" title="Debes escribir un Correo Electrónico Válido" name="correo" id="correo" class="inputForm col-xs-7 placeholder" placeholder="Escriba su Correo Electrónico" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba su Correo Electrónico'">
+            <input type="text" title="Debes escribir un Correo Electrónico Válido" name="correo" id="correo" class="inputForm col-xs-7 placeholder" placeholder="Escriba su Correo Electrónico" onfocus="this.placeholder=''" onblur="this.placeholder='Escriba su Correo Electrónico'" <?php echo $emailContact?>>
           </div>
         </div>
         <div class="col-xs-12">

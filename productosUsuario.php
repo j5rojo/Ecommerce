@@ -64,7 +64,14 @@
                   <p>Precio:&nbsp;<?php echo $producto['precio_producto']?>Bs.F</p>
                 </div>
                 <div class="col-xs-9 groupButton">
-                  <a href="#" class="link compra">Añadir al Carrito</a>
+                  <form action="nivelUsuario.php?section=carrito" method="post">
+                    <input type="hidden" name="idProducto" value="<?php echo $producto['id_producto']?>">
+                    <input type="hidden" name="nombreProducto" value="<?php echo $producto['nombre_producto'] ?>">
+                    <input type="hidden" name="stockProducto" value="<?php echo $producto['cantidad_producto']?>">
+                    <input type="hidden" name="cantidad" value="1">
+                    <input type="hidden" name="precioProducto" value="<?php echo $producto['precio_producto']?>">
+                    <button type="submit" class="link">Añadir al Carrito</button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -75,11 +82,4 @@
       echo "<h1 class='tituloh1'>No hay productos en esta categoria.</h1>";
     }
   ?>
-  <script type="text/javascript">
-    $(".compra").each(function(){
-      $(this).on("click", function(){
-        toastr.info("Debes iniciar sesi\u00F3n para añadir productos al carrito");
-      })
-    });
-  </script>
 </div>

@@ -58,7 +58,7 @@
           echo "
             <script>
               setTimeout(function(){
-                window.location='inicioUsuario.php';
+                window.location='nivelUsuario.php';
               }, 6500);
             </script>
           ";

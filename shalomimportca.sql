@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2016 a las 05:47:20
+-- Tiempo de generación: 18-06-2016 a las 18:15:10
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -128,7 +128,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `telefono_usuario`, `correo_usuario`, `username_usuario`, `contrasenia_usuario`, `nivel_usuario`) VALUES
-(1, 'Jesus', 'Bolivar', '021', 'j@q.com', 'j5rojo', '123456', 1);
+(1, 'JesÃºs', 'BolÃ­var', '04128489474', 'j5rojo94@gmail.com', 'j5rojo', '123456', 1);
 
 --
 -- Índices para tablas volcadas

@@ -2,21 +2,21 @@
 //Incluimos la clase del PhpMailer
   require_once("../class/class.phpmailer.php");
 //Validaciones Mensaje
-  if($_POST['nombre'] == ''){
+  if(isset($_POST['nombre']) && $_POST['nombre'] == ''){
     echo '<script type="text/javascript">
       $(document).ready(function() {
         toastr.warning("Debe escribir su nombre");
         $("#nombre").focus();
       });
       </script>';
-  }elseif($_POST['correo'] == ''){
+  }elseif(isset($_POST['nombre']) && $_POST['correo'] == ''){
     echo '<script type="text/javascript">
       $(document).ready(function() {
         toastr.warning("Debe escribir un correo electrónico");
         $("#correo").focus();
       });
       </script>';
-  }elseif(!preg_match("/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/",$_POST['correo'])){
+  }elseif(isset($_POST['nombre']) && !preg_match("/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/",$_POST['correo'])){
     echo '<script type="text/javascript">
       $(document).ready(function() {
         toastr.warning("Debe escribir un correo electrónico válido");
