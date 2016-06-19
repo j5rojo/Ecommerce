@@ -66,8 +66,8 @@
           </caption>
           <tr>
             <td class="primero">Producto</td>
-            <td class="primero">Precio</td>
             <td class="primero">Cantidad a Comprar</td>
+            <td class="primero">Precio</td>
             <td class="primero">SubTotal</td>
           </tr>
           <?php
@@ -83,7 +83,6 @@
               $total=$total+$subtotalProducto;
             ?>
             <td class="segundo"><?php echo $carrito[$i]['nombre']?></td>
-            <td class="segundo"><?php echo $carrito[$i]['precio']." Bs.F"?></td>
             <td class="segundo">
               <form method="post" name="actualizarCantidad">
                 <input name="viejaCantidad" type="hidden" value="<?php echo $i?>"/>
@@ -91,6 +90,7 @@
                 <button name="btnUpdateCantidad" id="updateCantidad"><span class="fa fa-refresh"></span></button>
               </form>
             </td>
+            <td class="segundo"><?php echo $carrito[$i]['precio']." Bs.F"?></td>
             <td class="segundo subtotal">
               <span><?php echo $subtotalProducto." Bs.F"?></span>
               <form method="post">
@@ -110,11 +110,13 @@
           </tr>
           <tr>
             <td colspan="4">
-            <?php if($i==0){
-              unset($i);
+            <?php if($c==0){
+              unset($c);
               echo "<script type='text/javascript'>
-                window.location='nivelUsuario.php?section=productos'
+                window.location='nivelUsuario.php?section=productos&error=empty'
               </script>";
+              unset($_SESSION['carrito']);
+              unset($carrito);
             }else{
               ?>
               <form class="form" name="solicitarProductos" method="post" action="nivelUsuario.php?section=confirmacion">

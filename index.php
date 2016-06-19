@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="css/menuIcons.css">
     <link rel="stylesheet" href="css/toastr.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/toastr.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
   </head>
   <body>
     <!-- Plantilla -->

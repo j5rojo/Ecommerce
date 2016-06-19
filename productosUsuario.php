@@ -21,7 +21,7 @@
                     while($categoria2=mysqli_fetch_array($resultado2, MYSQLI_ASSOC)){
                       ?>
                       <li>
-                        <a href="index.php?section=productos&categoria=<?php echo $categoria2['id_categoria']?>">
+                        <a href="nivelUsuario.php?section=productos&categoria=<?php echo $categoria2['id_categoria']?>">
                           <?php echo $categoria2['nombre_categoria'];?>
                         </a>
                       </li>
@@ -40,9 +40,9 @@
 <div class="row">
   <?php
     if(!isset($_GET['categoria'])){
-      $consulta="SELECT * FROM tbl_productos";
+      $consulta="SELECT * FROM tbl_productos WHERE cantidad_producto > 0";
     }else{
-      $consulta="SELECT * FROM tbl_productos WHERE categoria_producto='".$_GET['categoria']."'";
+      $consulta="SELECT * FROM tbl_productos WHERE cantidad_producto > 0 AND categoria_producto='".$_GET['categoria']."'";
     }
     $resultado=mysqli_query($con, $consulta);
     $cantidad=mysqli_num_rows($resultado);

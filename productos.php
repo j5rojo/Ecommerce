@@ -40,9 +40,9 @@
 <div class="row">
   <?php
     if(!isset($_GET['categoria'])){
-      $consulta="SELECT * FROM tbl_productos";
+      $consulta="SELECT * FROM tbl_productos WHERE cantidad_producto > 0";
     }else{
-      $consulta="SELECT * FROM tbl_productos WHERE categoria_producto='".$_GET['categoria']."'";
+      $consulta="SELECT * FROM tbl_productos WHERE cantidad_producto > 0 AND categoria_producto='".$_GET['categoria']."'";
     }
     $resultado=mysqli_query($con, $consulta);
     $cantidad=mysqli_num_rows($resultado);

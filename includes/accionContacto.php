@@ -50,8 +50,8 @@
     );
 
     //Cuerpo del Mensaje
-    $body = "<table border='0' style='font-size:18px'>";
-      $body .= "<tr><td colspan='2'><img src='images/LOGO.png' alt='Tiendas Shalom' width='200' height='80'/></td></tr>";
+      $body = "<table border='0' style='font-size:18px'>";
+      $body .= "<tr><td colspan='2'><img src='".$_SERVER['SERVER_NAME']."images/LOGO.png' alt='Tiendas Shalom' width='200' height='80'/></td></tr>";
       $body .= "<tr><td colspan='2'><strong>Mensaje para Shalom Import C.A.</strong></td></tr>";
       $body .= "<tr><td colspan='2'>&nbsp;</td></tr>";
       $body .= "<tr><td><strong>De:</strong>&nbsp;</td><td>".$datos['nombre']."</td></tr>";

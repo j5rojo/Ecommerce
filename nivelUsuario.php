@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="css/menuIcons.css">
     <link rel="stylesheet" href="css/toastr.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/toastr.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
   </head>
   <body>
     <!-- Plantilla -->
@@ -121,6 +124,33 @@
                             include('carrito.php');
                             echo "<script type='text/javascript'>document.title='.:Carrito de Compras:.';</script>";
                           break;
+                          case 'confirmacion':
+                            echo "
+                              <div class='row center-xs'>
+                                <h2 id='tituloSection' class='col-xs-12'>Confirmar Pedido</h2>
+                              </div>
+                            ";
+                            include('includes/confirmar.php');
+                            echo "<script type='text/javascript'>document.title='.:Confirmar Pedido:.';</script>";
+                          break;
+                          case 'pedido':
+                            echo "
+                              <div class='row center-xs'>
+                                <h2 id='tituloSection' class='col-xs-12'>Productos Pedidos</h2>
+                              </div>
+                            ";
+                            include('includes/pedidoMail.php');
+                            echo "<script type='text/javascript'>document.title='.:Productos Pedidos:.';</script>";
+                          break;
+                          case 'mispedidos':
+                            echo "
+                              <div class='row center-xs'>
+                                <h2 id='tituloSection' class='col-xs-12'>Pedidos Realizados</h2>
+                              </div>
+                            ";
+                            include('misPedidos.php');
+                            echo "<script type='text/javascript'>document.title='.:Pedidos Realizados:.';</script>";
+                          break;
                           default:
                             echo "
                               <div class='row center-xs'>
@@ -160,7 +190,7 @@
                               <?php
                                 if(isset($_SESSION['carrito'])){
                                   $carButton='href="nivelUsuario.php?section=carrito"';
-                                }else{
+                                }elseif(isset($_GET['error']) && $_GET['error']=='empty'){
                                   $carButton='class="emptyCar" style="cursor:pointer;"';
                                   echo '<script type="text/javascript">
                                     $(document).ready(function(){
@@ -170,12 +200,25 @@
                                         "extendedTimeOut": "6000",
                                         "escapeHtml": true
                                       }
-                                      $(".emptyCar").on("click", function(){
-                                        toastr.info("\u00A1Tu carrito est\u00E1 vacio! A\u00F1ade productos al carrito en la opci\u00F3n \"Productos\" del menu");
-                                      })
+                                      toastr.info("\u00A1Tu carrito est\u00E1 vacio! A\u00F1ade productos al carrito en la opci\u00F3n \"Productos\" del menu");
                                     });
                                   </script>';
+                                }else{
+                                  $carButton='class="emptyCar" style="cursor:pointer;"';
                                 }
+                                echo '<script type="text/javascript">
+                                  $(document).ready(function(){
+                                    toastr.options = {
+                                      "closeButton": true,
+                                      "positionClass": "toast-top-center",
+                                      "extendedTimeOut": "6000",
+                                      "escapeHtml": true
+                                    }
+                                    $(".emptyCar").on("click", function(){
+                                      toastr.info("\u00A1Tu carrito est\u00E1 vacio! A\u00F1ade productos al carrito en la opci\u00F3n \"Productos\" del menu");
+                                    })
+                                  });
+                                </script>';
                               ?>
                               <a <?php echo $carButton;?>>
                                 <span class="fa fa-shopping-cart"></span>
@@ -183,9 +226,9 @@
                               </a>
                             </li>
                             <li>
-                              <a href="">
+                              <a href="nivelUsuario.php?section=mispedidos">
                                 <span class="fa fa-shopping-bag"></span>
-                                <span class="textOption">Compras</span>
+                                <span class="textOption">Pedidos</span>
                               </a>
                             </li>
                           </ul>
