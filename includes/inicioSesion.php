@@ -62,6 +62,15 @@
               }, 6500);
             </script>
           ";
+        }elseif($_SESSION['nivel']==0){
+          $_SESSION['autentificado']= "SI";
+          echo "
+            <script>
+              setTimeout(function(){
+                window.location='nivelAdministrador.php';
+              }, 6500);
+            </script>
+          ";
         }
       }else{
         echo '<script type="text/javascript">

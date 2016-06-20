@@ -17,11 +17,16 @@
                   $consulta2="SELECT * FROM tbl_categorias WHERE tipo_categoria='".$categoria['tipo_categoria']."'";
                   $resultado2=mysqli_query($con, $consulta2);
                   $count=mysqli_num_rows($resultado2);
+                  if(isset($_SESSION['nivel']) && $_SESSION['nivel']==0){
+                    $nivel="nivelAdministrador.php";
+                  }else{
+                    $nivel="index.php";
+                  }
                   if($count!=0){
                     while($categoria2=mysqli_fetch_array($resultado2, MYSQLI_ASSOC)){
                       ?>
                       <li>
-                        <a href="index.php?section=productos&categoria=<?php echo $categoria2['id_categoria']?>">
+                        <a href="<?php echo $nivel?>?section=productos&categoria=<?php echo $categoria2['id_categoria']?>">
                           <?php echo $categoria2['nombre_categoria'];?>
                         </a>
                       </li>
@@ -74,12 +79,14 @@
     }else{
       echo "<h1 class='tituloh1'>No hay productos en esta categoria.</h1>";
     }
+    if(!isset($_SESSION['autentificado'])){
   ?>
-  <script type="text/javascript">
-    $(".compra").each(function(){
-      $(this).on("click", function(){
-        toastr.info("Debes iniciar sesi\u00F3n para añadir productos al carrito");
-      })
-    });
-  </script>
+      <script type="text/javascript">
+        $(".compra").each(function(){
+          $(this).on("click", function(){
+            toastr.info("Debes iniciar sesi\u00F3n para añadir productos al carrito");
+          })
+        });
+      </script>
+  <?php } ?>
 </div>

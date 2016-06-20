@@ -1,3 +1,4 @@
+<?php require_once('includes/seguridad.php') ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -32,16 +33,16 @@
                   <nav class="col-xs-8">
                     <div class="row end-xs">
                       <div class="col-xs-3">
-                        <a href="index.php?section=inicio"><span class="icon-web"></span>&nbsp;Inicio</a>
+                        <a href="nivelAdministrador.php?section=inicio"><span class="icon-web"></span>&nbsp;Inicio</a>
                       </div>
                       <div class="col-xs-3">
-                        <a href="index.php?section=nosotros"><span class="icon-people"></span>&nbsp;Nosotros</a>
+                        <a href="nivelAdministrador.php?section=nosotros"><span class="icon-people"></span>&nbsp;Nosotros</a>
                       </div>
                       <div class="col-xs-3">
-                        <a href="index.php?section=productos"><span class="icon-fashion"></span>&nbsp;Productos</a>
+                        <a href="nivelAdministrador.php?section=productos"><span class="icon-fashion"></span>&nbsp;Productos</a>
                       </div>
                       <div class="col-xs-3">
-                        <a href="index.php?section=contactanos"><span class="icon-apple"></span>&nbsp;Cont&aacute;ctanos</a>
+                        <a href="nivelAdministrador.php?section=usuarios"><span class="fa fa-users"></span>&nbsp;Usuarios</a>
                       </div>
                     </div>
                   </nav>
@@ -96,23 +97,41 @@
                             include('productos.php');
                             echo "<script type='text/javascript'>document.title='.:Productos:.';</script>";
                           break;
-                          case 'contactanos':
+                          case 'usuarios':
                             echo "
                               <div class='row center-xs'>
-                                <h2 id='tituloSection' class='col-xs-12'>Contáctanos</h2>
+                                <h2 id='tituloSection' class='col-xs-12'>Usuarios</h2>
                               </div>
                             ";
-                            include('contactanos.php');
-                            echo "<script type='text/javascript'>document.title='.:Contáctanos:.';</script>";
+                            include('usuarios.php');
+                            echo "<script type='text/javascript'>document.title='.:Usuarios:.';</script>";
                           break;
-                          case 'registro':
+                          case 'perfilUsuario':
                             echo "
                               <div class='row center-xs'>
-                                <h2 id='tituloSection' class='col-xs-12'>Registro de Usuario</h2>
+                                <h2 id='tituloSection' class='col-xs-12'>Perfil de Usuario</h2>
                               </div>
                             ";
-                            include('registro.php');
-                            echo "<script type='text/javascript'>document.title='.:Registro de Usuario:.';</script>";
+                            include('includes/perfilUsuario.php');
+                            echo "<script type='text/javascript'>document.title='.:Perfil de Usuario:.';</script>";
+                          break;
+                          case 'ventas':
+                            echo "
+                              <div class='row center-xs'>
+                                <h2 id='tituloSection' class='col-xs-12'>Ventas Realizadas</h2>
+                              </div>
+                            ";
+                            include('ventas.php');
+                            echo "<script type='text/javascript'>document.title='.:Ventas Realizadas:.';</script>";
+                          break;
+                          case 'admProductos':
+                            echo "
+                              <div class='row center-xs'>
+                                <h2 id='tituloSection' class='col-xs-12'>Administraci&oacute;n de Productos</h2>
+                              </div>
+                            ";
+                            include('admProductos.php');
+                            echo "<script type='text/javascript'>document.title='.:Administraci&oacute;n de Productos:.';</script>";
                           break;
                           default:
                             echo "
@@ -134,46 +153,36 @@
                 <div class="col-xs-4">
                   <!-- Formulario de Inicio de Sesión -->
                     <aside class="middle-xs center-xs">
-                      <form id="formInicioSesion" method="POST" autocomplete="off">
-                        <h2 class="col-xs-12">Iniciar Sesión</h2>
-                        <div class="row center-xs" id="answer"></div>
-                        <div class="row center-xs">
-                          <input type="text" name="user" id="user" class="inputForm col-xs-6 placeholder" placeholder="Nombre de Usuario" onfocus="this.placeholder=''" onblur="this.placeholder='Nombre de Usuario'">
+                      <div id="formInicioSesion">
+                        <h2 class="col-xs-12" class="panelUsuario">
+                          Bienvenido <?php echo $_SESSION['usuario']?>
+                          <a href="includes/cerrarSesion.php" class="cerrarSesion">
+                            <span class="fa fa-sign-out"></span>
+                          </a>
+                        </h2>
+                        <div class="col-xs-12 menuUsuario">
+                          <ul>
+                            <li>
+                              <a href="nivelAdministrador.php?section=perfilUsuario">
+                                <span class="fa fa-user"></span>
+                                <span class="textOption">Perfil</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="nivelAdministrador.php?section=admProductos">
+                                <span class="fa fa-cogs"></span>
+                                <span class="textOption">Administraci&oacute;n</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="nivelAdministrador.php?section=ventas">
+                                <span class="fa fa-money"></span>
+                                <span class="textOption">Ventas</span>
+                              </a>
+                            </li>
+                          </ul>
                         </div>
-                        <div class="row center-xs">
-                          <input type="password" name="pass" id="pass" class="inputForm col-xs-6 placeholder" placeholder="Contraseña" onfocus="this.placeholder=''" onblur="this.placeholder='Contraseña'">
-                        </div>
-                        <div class="row center-xs">
-                          <div class="row groupButton">
-                            <button type="button" name="btn-inicioSesion" class="col-xs-6">Conectarse</button>
-                            <a href="index.php?section=registro" class="col-xs-6">Registrarse</a>
-                          </div>
-                        </div>
-                      </form>
-                      <script type="text/javascript">
-                        toastr.options = {
-                          "closeButton": true,
-                          "positionClass": "toast-top-center",
-                          "extendedTimeOut": "6000",
-                          "escapeHtml": true,
-                        }
-                        $("button[name='btn-inicioSesion']").click(function(){
-                          var form = new FormData(document.getElementById("formInicioSesion"));
-                          $.ajax({
-                            url: "includes/inicioSesion.php",
-                            type: "POST",
-                            data: form,
-                            processData: false,  // tell jQuery not to process the data
-                            contentType: false,   // tell jQuery not to set contentType
-                            success: function(response){
-                              $("#answer").append(response);
-                            }
-                          });
-                        });
-                        $("button[name='btn-reset']").click(function(){
-                          location.reload();
-                        });
-                      </script>
+                      </div>
                     </aside>
                   <!-- Fin del Formulario de Inicio de Sesión -->
                   <!-- Instagram -->

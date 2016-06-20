@@ -420,3 +420,22 @@ footer{
     border-bottom-color: #010084;
     color: #3333FF;
   }
+  .admProductos{
+    background: #010084;
+    padding: 0 !important;
+    border-top: 3px solid #555555;
+  }
+  .admProductos a{color: #ffffff !important;}
+  .itProducto{position: relative;}
+  .itProducto a{
+    position: absolute;
+    margin-right: 10px;
+    right:0px;
+    font-size: 20px;
+  }
+  .admCategorias{
+    background: #010084;
+    padding: 0 !important;
+    border-top: 3px solid #555555;
+  }
+  .admCategorias a{color: #ffffff !important;}
