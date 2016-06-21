@@ -1,4 +1,4 @@
-<?php require_once('includes/seguridad.php') ?>
+<?php require_once('includes/seguridadAdm.php') ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -131,7 +131,7 @@
                               </div>
                             ";
                             include('admProductos.php');
-                            echo "<script type='text/javascript'>document.title='.:Administraci&oacute;n de Productos:.';</script>";
+                            echo "<script type='text/javascript'>document.title='.:Administración de Productos:.';</script>";
                           break;
                           default:
                             echo "

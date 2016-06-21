@@ -75,7 +75,7 @@
 </script>
 <?php
   if($_SESSION['autentificado']=="SI" && $_SESSION['nivel']==0 && isset($_POST['eliminar'])){
-      include_once('conexbd.php');
+      require_once('conexbd.php');
       $con = conexionBD('localhost', 'root', '', 'shalomimportca');
       $consulta = "DELETE FROM tbl_usuarios WHERE id_usuario='".$_POST['codUsuario']."'";
       if(mysqli_query($con, $consulta)){

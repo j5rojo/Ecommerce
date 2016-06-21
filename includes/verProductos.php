@@ -10,12 +10,18 @@
         while($fila=mysqli_fetch_assoc($resultado)){
           echo "
             <div class='col-xs-4 itProducto'>
-              <a class='mod'>
-                <span class='fa fa-pencil'></span>
-              </a>
-              <a class='del'>
-                <span class='fa fa-times'></span>
-              </a>
+              <form action='nivelAdministrador.php?section=admProductos&option=modProducto' method='post'>
+                <input type='hidden' value='".$fila['id_producto']."' name='id_mod'/>
+                <button class='mod' type='submit'>
+                  <span class='fa fa-pencil'></span>
+                </button>
+              </form>
+              <form action='nivelAdministrador.php?section=admProductos&option=delProducto' method='post'>
+                <input type='hidden' value='".$fila['id_producto']."' name='id_del'/>
+                <button class='del' type='submit'>
+                  <span class='fa fa-times'></span>
+                </button>
+              </form>
               <table width='100%'>
                 <tr>
                   <td>

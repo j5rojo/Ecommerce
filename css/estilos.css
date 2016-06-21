@@ -427,12 +427,18 @@ footer{
   }
   .admProductos a{color: #ffffff !important;}
   .itProducto{position: relative;}
-  .itProducto a{
+  .itProducto button{
     position: absolute;
     margin-right: 10px;
     right:0px;
     font-size: 20px;
+    background: none;
+    border: none;
+    color: #555555;
+    cursor: pointer;
   }
+  .itProducto button:hover{color: #0000c4;}
+  .itProducto .del{top:25px;}
   .admCategorias{
     background: #010084;
     padding: 0 !important;

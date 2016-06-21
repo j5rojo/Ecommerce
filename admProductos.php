@@ -51,13 +51,13 @@
     <div class="admCategorias hide menuUsuario">
       <ul>
         <li>
-          <a>
+          <a href="nivelAdministrador.php?section=admProductos&option=agregarCategoria">
             <span class="fa fa-plus"></span>
             <span class="textOption">Añadir Categoria</span>
           </a>
         </li>
         <li>
-          <a>
+          <a href="nivelAdministrador.php?section=admProductos&option=verCategorias">
             <span class="fa fa-search-plus"></span>
             <span class="textOption">Ver Categorias</span>
           </a>
@@ -72,6 +72,18 @@
           require_once("includes/agregarProducto.php");
         }elseif($_GET['option']=='verProductos'){
           require_once("includes/verProductos.php");
+        }elseif($_GET['option']=='modProducto'){
+          require_once("includes/modProductos.php");
+        }elseif($_GET['option']=='delProducto'){
+          require_once("includes/delProductos.php");
+        }elseif($_GET['option']=='agregarCategoria'){
+          require_once("includes/agregarCategoria.php");
+        }elseif($_GET['option']=='verCategorias'){
+          require_once("includes/verCategorias.php");
+        }elseif($_GET['option']=='modCategoria'){
+          require_once("includes/modCategoria.php");
+        }elseif($_GET['option']=='delCategoria'){
+          require_once("includes/delCategoria.php");
         }
       }
     ?>
