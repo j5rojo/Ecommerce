@@ -94,12 +94,12 @@
           </select>
         </div>
       </div>
-      <!-- <div class="col-xs-12">
+      <div class="col-xs-12">
         <div class="row center-xs groupButton">
           <button type="button" class="fotop col-xs-7" onclick="getElementById('fotop').click();"><?php echo $row['fotoName_producto']?></button>
           <input type="file" name="fotop" id="fotop"/>
         </div>
-      </div> -->
+      </div>
       <div class="col-xs-6">
         <div class="row groupButton">
           <input type="hidden" name="id" value="<?php echo $row['id_producto']?>">

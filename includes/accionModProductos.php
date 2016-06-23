@@ -59,42 +59,43 @@ $con=conexionBD('localhost', 'root', '', 'shalomimportca');
         $("#destacadop").focus()
       });
     </script>';
-  }
-  // elseif($_FILES['fotop']['error'] == UPLOAD_ERR_NO_FILE){
-  //   $foto="SELECT fotoName_producto, fotoExtension_producto, fotoBinario_producto FROM tbl_productos WHERE id_producto='$id'";
-  //   $resultfoto=mysqli_query($con, $foto);
-  //   $pic=mysqli_fetch_assoc($resultfoto);
-  //   $fileName=$pic['fotoName_producto'];
-  //   $fileExtension=$pic['fotoExtension_producto'];
-  // }
-  else{
-    // if(isset($_FILES['fotop'])){
-    //   $file = $_FILES['fotop'];
-    //   $temName = $file['tmp_name'];
-    //   $fileName = $file['name'];
-    //   $fileExtension = substr(strrchr($fileName, '.'), 1);
-    //   $fp = fopen($temName, "rb");
-    //   $contenido = fread($fp, filesize($temName));
-    //   $contenido = addslashes($contenido);
-    //   fclose($fp);
-    // }
+  }else{
     $nombrep=$_POST['nombrep'];
     $stockp=$_POST['stockp'];
     $descp=$_POST['descp'];
     $preciop=$_POST['preciop'];
     $categoriap=$_POST['categoriap'];
     $destacadop=$_POST['destacadop'];
-    $query = "UPDATE tbl_productos SET
-             nombre_producto='$nombrep',
-             cantidad_producto='$stockp',
-             descripcion_producto='$descp',
-             precio_producto='$preciop',
-            --  fotoName_producto='$fileName',
-            --  fotoExtension_producto='$fileExtension',
-            --  fotoBinario_producto='$contenido',
-             categoria_producto='$categoriap',
-             destacado_producto='$destacadop'
-           WHERE id_producto='$id'";
+    if($_FILES['fotop']['error'] == UPLOAD_ERR_NO_FILE){
+      $query = "UPDATE tbl_productos SET
+               nombre_producto='$nombrep',
+               cantidad_producto='$stockp',
+               descripcion_producto='$descp',
+               precio_producto='$preciop',
+               categoria_producto='$categoriap',
+               destacado_producto='$destacadop'
+             WHERE id_producto='$id'";
+    }elseif(isset($_FILES['fotop'])){
+        $file = $_FILES['fotop'];
+        $temName = $file['tmp_name'];
+        $fileName = $file['name'];
+        $fileExtension = substr(strrchr($fileName, '.'), 1);
+        $fp = fopen($temName, "rb");
+        $contenido = fread($fp, filesize($temName));
+        $contenido = addslashes($contenido);
+        fclose($fp);
+        $query = "UPDATE tbl_productos SET
+                 nombre_producto='$nombrep',
+                 cantidad_producto='$stockp',
+                 descripcion_producto='$descp',
+                 precio_producto='$preciop',
+                 fotoName_producto='$fileName',
+                 fotoExtension_producto='$fileExtension',
+                 fotoBinario_producto='$contenido',
+                 categoria_producto='$categoriap',
+                 destacado_producto='$destacadop'
+               WHERE id_producto='$id'";
+    }
     if(mysqli_query($con, $query)){
       echo '<script type="text/javascript">
         $(document).ready(function() {
