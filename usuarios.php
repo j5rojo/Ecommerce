@@ -5,6 +5,7 @@
   <div class="col-xs-10">
     <div class="row middle-xs center-xs between-xs">
       <?php
+        session_start();
         require_once('includes/conexbd.php');
         $con=conexionBD('localhost', 'root', '', 'shalomimportca');
         $consultaUsuario="SELECT * FROM tbl_usuarios WHERE nivel_usuario='1'";
@@ -46,10 +47,10 @@
                 </tr>
                 <tr>
                   <td colspan="2" style="text-align:center">
-                    <form method="post">
+                    <form action="includes/delUsuario.php" method="post">
                       <input type="hidden" name="codUsuario" value="'.$fila['id_usuario'].'"/>
                       <div class="groupButton row">
-                        <button class="col-xs-12 '.$fila['id_usuario'].'" type="submit" name="eliminar">
+                        <button class="col-xs-12 '.$fila['id_usuario'].'" name="eliminar">
                           <span class="fa fa-times"></span>
                           Eliminar
                         </button>
@@ -74,28 +75,16 @@
   }
 </script>
 <?php
-  if($_SESSION['autentificado']=="SI" && $_SESSION['nivel']==0 && isset($_POST['eliminar'])){
-      require_once('conexbd.php');
-      $con = conexionBD('localhost', 'root', '', 'shalomimportca');
-      $consulta = "DELETE FROM tbl_usuarios WHERE id_usuario='".$_POST['codUsuario']."'";
-      if(mysqli_query($con, $consulta)){
-        echo "
-          <script type='text/javascript'>
-            $(document).ready(function() {
-              toastr.success('Usuario Eliminado.');
-              setTimeout(function(){
-                location.reload();
-              }, 6000)
-            });
-          </script>
-        ";
-      }else{
-        echo "
-          <script type='text/javascript'>
-            $(document).ready(function() {
-              toastr.error('No se ha podido Eliminar al usuario.');
-            });
-          </script>
-        ";      }
+  if(isset($_GET['del']) && $_GET['del']==true){
+    ?>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        toastr.success("Usuario Eliminado");
+        setTimeout(function(){
+          window.location="nivelAdministrador.php?section=usuarios";
+        }, 5000);
+      })
+    </script>';
+    <?php
   }
 ?>
